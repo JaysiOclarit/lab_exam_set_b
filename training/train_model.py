@@ -75,4 +75,8 @@ print("Classification Report:\n", classification_report(y_test, y_pred))
 joblib.dump(model, '../models/heart_disease_model.pkl', compress=3)
 joblib.dump(scaler, '../models/scaler.pkl')
 
-print("✅ Model and Scaler saved in '../models/' folder")
+# Save the column order for use during inference
+joblib.dump(X.columns.tolist(), '../models/feature_columns.pkl')
+
+print("✅ Model, Scaler, and Column List saved in '../models/' folder")
+
